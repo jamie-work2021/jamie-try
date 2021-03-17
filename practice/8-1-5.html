@@ -10,15 +10,19 @@
 
 <body>
     <script>
-        let count = 0;
-        while (count <= 7) {
-            if (count == 5) { break };
-            console.log(`count =${count}`);
-            count++;
+        let number = 7;
+        switch (number) {
+            case '7':
+            case 7:
+            case 'number':
+                console.log('number');
+                break;
 
+            default:
+                console.log('default');
         }
+        // 輸出 number
     </script>
-
 </body>
 
 </html>

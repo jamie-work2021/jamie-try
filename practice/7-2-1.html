@@ -9,14 +9,13 @@
 </head>
 
 <body>
-    <script>
-        let count = 0;
-        while (count <= 7) {
-            if (count == 5) { break };
-            console.log(`count =${count}`);
-            count++;
+    <p class="myClass">問世間，</p>
+    <p class="myClass">情是何物，</p>
+    <p class="myClass">直教生死相許。</p>
 
-        }
+    <script>
+        let p = document.querySelector('p.myClass')
+        p.style.backgroundColor = 'lightblue';
     </script>
 
 </body>

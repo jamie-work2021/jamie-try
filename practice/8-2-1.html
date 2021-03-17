@@ -10,15 +10,20 @@
 
 <body>
     <script>
-        let count = 0;
-        while (count <= 7) {
-            if (count == 5) { break };
-            console.log(`count =${count}`);
+        let count = 1;
+        while (count < 7) {
+            console.log(count);
             count++;
-
         }
-    </script>
 
+
+        do {
+            console.log(count);
+            count++;
+        }
+        while (count <= 7)
+    // 輸出 1 2 3 4 5 6 7，與 while(){…} 差異在於 do 區塊會先執行完，才進行 while 判斷
+    </script>
 </body>
 
 </html>
