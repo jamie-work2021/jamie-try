@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        let arr = ['a', 'b', 'c'];
+        for (let key in arr) {
+            console.log(key);
+        }
+        //key代表值的意思背後的0 1 2 
+
+        for (let attr in arr) {
+            console.log(`${arr[0]}`)
+        }
+        //let attr可以更改為let 任意取名,命名為attr只是因為檢查code的時候,方便檢查
+        //[attr],可更改為0,1,2一種索引的概念 in的話是一種索引的概念取得key
+        // in就是要印出裡面的值<所以先印出後,再一個個叫出來
+
+        //for迴圈會每次階段都印出來,用in的話會把索引有幾個都列印出來
+
+        // for迴圈的個別用法,有in 和 of
+
+
+        for (let value of arr) {
+            console.log(value);
+        }
+    //有順序的才可以用of所以陣列才會用OF
+    // obj(字典)就不會用of會用in,因為沒有順序差別
+    </script>
+</body>
+
+</html>

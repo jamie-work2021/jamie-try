@@ -10,11 +10,35 @@
 
 <body>
     <script>
-        for (let i = 0; i < 10; i++) {
-            if (i === 4) { continue };
-            //單行的{ continue };可以不用{}
-            console.log(`i = ${i}`);
+        // for (let i = 0; i < 10; i++) {
+        //     if (i === 4) { continue };
+        //     //單行的{ continue };可以不用{}
+        //     console.log(`i = ${i}`);
+        // }
+
+        // let i = 0;
+        // console.log(i++);
+        // console.log(++i);
+        // console.log(i);
+        // //補充
+
+        let arr = ['a', 'b', 'c', 'd'];
+
+        let str = "";
+        for (let i = 0; i < arr.length; i++) {
+            if (str == "") {
+                str = arr[i]
+            } else {
+                str += "," + arr[i];
+            };
+
         }
+
+        console.log(str)
+
+
+
+
     </script>
 
 </body>
