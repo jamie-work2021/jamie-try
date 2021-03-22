@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var Person = function (name) {
+            this.hands = 2;
+            this.firstName = name
+        };
+        //用NEW創建一個新的物件(讓你命名的物件成為一項可以指定)
+        var person1 = new Person('alex');
+        var person2 = new Person('kurt');
+
+        console.log(person1.firstName);
+        console.log(person2.firstName);
+
+        console.log(person1.hands);
+
+    </script>
+</body>
+
+</html>

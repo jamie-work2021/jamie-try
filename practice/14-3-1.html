@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //類別(class)的第一個字通常會大寫
+        let Person = function (name) {
+            this.firstName = name;
+
+        }
+        //使用 prototype，為 Person 類別定義了方法 sayHello()
+        Person.prototype.sayhello = function () {
+            console.log("hello! i'm   " + this.firstName);
+
+        };
+
+        let person01 = new Person('alice');
+        let person02 = new Person('alex');
+
+        console.log(person01.firstName);
+        console.log(Person.firstName);
+
+        person01.sayhello();
+        person02.sayhello();
+        //javascript專用用法
+        //Array.prototype.join= (){}
+        //官方不建議去使用 可以更改調原本預設的功能
+
+    </script>
+</body>
+
+</html>
