@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p style="color: rgba(77, 115, 128, 0.555);line-height: 3;font-size: 30px;">Hello World<br />GOOD JOB!!!</p>
+    <script>
+        let p = document.getElementsByTagName('p')[0];
+        document.write("<br/>");
+        document.write(p.style.color + "<br />");
+        document.write(p.style.lineHeight + "<br />");
+        document.write(p.style.fontSize + "<br />");
+
+        p.style.color = "lightblue";
+        p.style['font-size'] = '50px';
+        p.style.backgroundColor = '#eee';
+        p.style.textAlign = 'center';
+        p.style.border = '5px dotted rgb(77, 115, 128,0.55)';
+    </script>
+</body>
+
+</html>

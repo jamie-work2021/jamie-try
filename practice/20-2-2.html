@@ -16,10 +16,14 @@
     </ul>
     <script>
         var myList = document.getElementById('myList');
+        //取得容器
 
         var newList = document.createElement('li');
+        //設一個變數建立新的元素
         var textNode = document.createTextNode('hello woeld!!');
+        //設一個變數建立文字節點
 
+        //將兩者合併藉由appendChild的方式;先新增文字;再將新的物件加入到原有的列表中       
         newList.appendChild(textNode);
         myList.appendChild(newList);
     </script>
