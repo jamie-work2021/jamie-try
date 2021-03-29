@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Json_onclick() {
+            // A. 物件陣列，用中括號框住一組以 JSON 格式表現的物件
+            var objArray = [
+                { "firstName": "Derek", "lastName": "Jeter" },
+                { "firstName": "Jeremy", "lastName": "Lin" },
+                { "firstName": "Lionel", "lastName": "Messi" }
+            ];
+
+            //JSON.stringify 將物件轉成Json字串
+            debug.innerText = JSON.stringify(objArray);
+
+            //JSON.parse  將Json字串 轉換成物件
+            var objJsonArray = JSON.parse(JSON.stringify(objArray));
+            debug.innerText = "";
+            objJsonArray.forEach(function (obj) {
+                debug.innerText += obj.firstName + "-" + obj.lastName;
+                debug.innerHTML += "<br/>";
+
+            })
+
+        }
+
+        var str = '{"name":"fendouer", "age":23}';      //這是一個json字串''
+        var ob = JSON.parse(str);  //返回一個新物件
+        console.log(ob.name)
+
+
+        //把json中的stringify物件轉換成字串 
+
+        var obj = { "student": [{ "name": "cyl", "age": "21" }, { "name": "hyj", "age": "23" }] };      //這是一個json物件
+        var str = obj.student[0].name;
+        var newstr = JSON.stringify(str); //返回一個新字串
+        console.log(newstr);
+    </script>
+</body>
+
+</html>

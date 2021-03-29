@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/easeljs.min.js"></script>
+
+</head>
+
+<body>
+    <canvas id="mycanvas" width="800" height="500"></canvas>
+
+    <script>
+        // 图片预加载
+        function loadImages(sourse, callback) {
+            var count = 0,
+                images = {},
+                imgNum = 0;
+            for (src in sourse) {
+                imgNum++
+            }
+            for (src in sourse) {
+                images[src] = new Image();
+                images[src].onload = function () {
+                    if (++count >= imgNum) {
+                        callback(images);
+                    }
+                }
+                images[src].src = sourse[src];
+            }
+        }
+        $(document).ready(function () {
+            var stage = new createjs.Stage("mycanvas")
+            createjs.Ticker.addEventListener("tick", stageBreakHandler);
+            // 图片预加载
+            var sources = {
+                groundImg: "img/ground.png",
+                hill1: "img/hill1.png",
+                hill2: "img/hill2.png",
+                ren: "img/ren.png",
+            };
+            var sp, ground, hill1, hill2
+            loadImages(sources, function (images) {
+                // 天空背景
+                var sky = new createjs.Shape()
+                sky.graphics.beginLinearGradientFill(["#7dcef6", "#c1e2f2"], [0, 1], 0, 580, 0, 500).drawRect(0, 0, 800, 500)
+                // 山
+                hill1 = new createjs.Bitmap(images.hill1)
+                hill1.set({ x: -300, y: 150, alpha: 0.5, scaleX: 3, scaleY: 5 });
+                hill1.iw = images.hill1.width
+
+                hill2 = new createjs.Bitmap(images.hill2)
+                hill2.set({ x: 210, y: 500 - 220, scaleX: 3, scaleY: 3 });
+                hill2.iw = images.hill2.width
+
+
+                // 地板
+                ground = new createjs.Shape()
+                ground.graphics.beginBitmapFill(images.groundImg).drawRect(0, 0, 800 + images.groundImg.width, images.groundImg.height)
+                ground.y = 500 - images.groundImg.height;
+                ground.tileW = images.groundImg.width;
+
+
+                // 人
+                var ss = new createjs.SpriteSheet({
+                    "images": [images.ren],
+                    "frames": { "width": 165, "height": 292, count: 64 },
+                    "animations": {
+                        "run": [0, 36, "jump", 1.5],
+                        "jump": [36, 63, "run"]
+                    }
+                })
+
+                sp = new createjs.Sprite(ss, "run")
+                sp.x = 100
+                sp.y = 500 - 292 - 79
+                stage.addChild(sky, hill1, hill2, ground, sp)
+                stage.update();
+            });
+
+            function stageBreakHandler(event) {
+                // event.delta -- 上一次tick到当前tick的ms
+                var deltaS = event.delta / 1000;
+                ground.x = (ground.x - deltaS * 150) % ground.tileW;
+                hill1.x = (hill1.x - deltaS * 30);
+                hill2.x = (hill2.x - deltaS * 30);
+                sp.x += 5
+                if (sp.x >= 800) {
+                    sp.x = 0
+                    hill1.x = -300;
+                    hill2.x = 200;
+                }
+                stage.update();
+            }
+        })
+    </script>
+</body>
+
+</html>

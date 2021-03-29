@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            margin: 0 auto;
+            text-align: center;
+            border: 3px solid #009FCC;
+            /*設定表格框線*/
+
+            border-collapse: collapse;
+            /*使表格框(table)跟每一格(column)的框不重複*/
+
+            background-color: #CCEEFF;
+
+            color: #44444e;
+
+        }
+
+        td {
+            padding-top: 10px;
+
+            padding-left: 18px;
+
+            padding-right: 10px;
+
+            padding-bottom: 10px;
+
+            width: 55px;
+
+            border: 2px solid #ffffff;
+
+        }
+
+        .img-container {
+
+            margin: 0 auto;
+            width: 150px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .container {
+            display: flex;
+            margin-bottom: 100px;
+        }
+
+        p {
+            margin-left: 100px;
+        }
+
+        div {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        span {
+            color: rgb(78, 78, 78);
+            padding: 5px;
+            background-color: rgba(251, 211, 35, 0.924);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img-container">
+            <img src="./img/1.png">
+            <p>Alex</p>
+        </div>
+        <div class="img-container">
+            <img src="./img/—Pngtree—cute little boy q version_3934257.png">
+            <p>Bill</p>
+        </div>
+        <div class="img-container">
+            <img src="./img/—Pngtree—football boy cute boy q_3785093.png">
+            <p>Cook</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+
+        let obj01 = {
+            name: 'Alex',
+            age: 18,
+            eng_score: 87,
+            math_score: 90,
+        };
+
+        let obj02 = {
+            name: 'Bill',
+            age: 19,
+            eng_score: 95,
+            math_score: 98,
+        };
+        let obj03 = {
+            name: 'Cook',
+            age: 17,
+            eng_score: 100,
+            math_score: 73,
+        };
+        let arr = [obj01, obj02, obj03];
+
+        var len = arr.length;
+        var sum = '';
+
+        document.write("<table>")
+
+
+
+        document.write("<td>name</td>")
+        for (let i = 0; i < len; i++) {
+            sum = arr[i].name
+
+            document.write("<td>")
+            document.write(sum)
+            // document.write("<td>")
+        }
+
+        document.write('</tr>')
+        document.write("<td>age</td>")
+        var sum02 = ''
+        for (let i = 0; i < len; i++) {
+            sum02 = arr[i].age
+
+            document.write("<td>")
+            document.write(sum02)
+            // document.write("<td>")
+        }
+        document.write('</tr>')
+        document.write("<td>eng_score</td>")
+        var sum03 = ''
+        for (let i = 0; i < len; i++) {
+            sum03 = arr[i].eng_score
+
+            document.write("<td>")
+            document.write(sum03)
+            // document.write("<td>")
+        }
+        document.write('</tr>')
+        document.write("<td>math_score</td>")
+        var sum04 = ''
+        for (let i = 0; i < len; i++) {
+            sum04 = arr[i].math_score
+
+            document.write("<td>")
+            document.write(sum04)
+            // document.write("<td>")
+        }
+
+
+
+        // document.write("<td>")
+        // for (let i = 0; i < 4; i++) {
+
+        //     document.write('<br/>' + arr[i].age + '</br>')
+        // }
+        // document.write("<td>")
+        // for (let i = 0; i < 4; i++) {
+
+        //     document.write('<br/>' + arr[i].eng_score + '</br>')
+        // }
+        // document.write("<td>")
+        // for (let i = 0; i < 4; i++) {
+
+        //     document.write('<br/>' + arr[i].math_score + '</br>')
+        // }
+
+        document.write("</table>")
+
+
+
+
+        // for (let i = 0; i < 4; i++) {
+        //     document.write(arr[i].name);
+        // }
+
+        // for (let i = 0; i < 4; i++) {
+        //     console.log(arr[i].name)
+        //     console.log(arr[i].age)
+        //     console.log(arr[i].eng_score)
+        //     console.log(arr[i].math_score)
+        // }
+
+        var avg = function (array) {
+            var len = array.length;
+            var sum = 0;
+            for (let i = 0; i < len; i++) {
+                sum += array[i].eng_score;
+            }
+            return sum / len;
+        }
+        console.log(avg(arr));
+        document.write(`<div class = div><span class = span>英文成績平均：${avg(arr)}</span></div></br>`)
+
+        var avg = function (array) {
+            var len = array.length;
+            var sum = 0;
+            for (let i = 0; i < len; i++) {
+                sum += array[i].math_score;
+            }
+            return sum / len;
+        }
+        console.log(avg(arr));
+        document.write(`<div class = div><span class = span>數學成績平均：${avg(arr)}</span></div></br>`)
+
+
+
+        // let arr1d = [];
+        // let arr2d = [];
+        // arr1d[0] = obj01.name;
+        // arr1d[1] = obj01.age;
+        // arr1d[2] = obj01.eng_score;
+        // arr1d[3] = obj01.math_score;
+
+        // arr2d.push(arr1d);
+        // console.log(arr2d);
+        // let arr1d2 = []
+        // arr1d2[0] = obj02.name;
+        // arr1d2[1] = obj02.age;
+        // arr1d2[2] = obj02.eng_score;
+        // arr1d2[3] = obj02.math_score;
+
+        // arr2d.push(arr1d2);
+        // console.log(arr2d);
+        // // arr.push
+
+        // console.log(arr);
+
+        // for (let i = 0; i = 3; i++) {
+
+        // }
+
+
+
+        // let array = [obj01.eng_score, obj02.eng_score, obj03.eng_score];
+        // for (let value of array) {
+        //     console.log(value);
+        //     document.write(`${value}`)
+        // }
+
+        // for (let attr in obj01) {
+        //     console.log(`${attr}`);
+        //     document.write(`alex   ${attr}</br>`)
+        // }
+
+        // console.log(obj01);
+        // console.log(obj02);
+        // console.log(obj03);
+
+        // for (let attr of obj01) {
+        //     console.log(`所有學生成績資料：</br>${obj01}</br>${obj02}`)
+        // }
+
+        // document.write(`所有學生成績資料：</br>${obj01}[0]</br>${obj02}`)
+
+
+
+
+        // var arr01 = [87, 95, 100];
+        // var avg = function (array) {
+        //     var len = array.length;
+        //     var sum = 0;
+        //     for (let i = 0; i < len; i++) {
+        //         sum += array[i];
+        //     }
+        //     return sum / len;
+        // }
+        // console.log(avg(arr01));
+        // document.write(`英文成績平均：${avg(arr01)}</br>`)
+
+        // var arr1 = [90, 98, 73];
+        // var avg1 = function (array) {
+        //     var len = array.length;
+        //     var sum = 0;
+        //     for (let i = 0; i < len; i++) {
+        //         sum += array[i];
+        //     }
+        //     return sum / len;
+        // }
+        // console.log(avg1(arr1));
+        // document.write(`數學成績平均：${avg1(arr1)}</br>`)
+
+
+        // let obj01 = {
+        //     name: 'Alex',
+        //     age: 18,
+        //     eng_score: 87,
+        //     math_score: 90,
+        // };
+
+        // let obj01 = [
+        //     ['name', 'Alex']
+        //     ['age', '18'],
+        //     ['eng_score', '87'],
+        //     ['math_score', '90'],
+        // ];
+
+        // let arr = [obj01, obj02, obj03];
+        // document.write(arr);
+
+
+        // let www = `{
+        //     "Alex":{
+        //         "name"：“Alex“,
+        //         "age":"18",
+        //         "eng_score": "87",
+        //         "math_score": "90",
+        //     },
+        //     "Bill":{
+        //         "name"：“Bill“,
+        //         "age":"19",
+        //         "eng_score": "95",
+        //         "math_score": "98",
+        //     },
+        //     "Cook":{
+        //         "name"：“Cook“,
+        //         "age":"17",
+        //         "eng_score": "100",
+        //         "math_score": "73",
+        //     }
+        // }`;
+        // document.write(www);
+        // // let arr001 = [arr];
+
+    </script>
+</body>
+
+</html>

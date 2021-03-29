@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #circle {
+            color: rgb(124, 124, 124);
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .blue {
+            background-color: rgb(253, 253, 253);
+            padding: 10px 12px 10px 12px;
+            border: 1px solid rgb(197, 197, 197);
+            border-radius: 50%;
+            color: cadetblue;
+        }
+
+        .purple {
+            background-color: rgb(19, 33, 95);
+            padding: 10px 12px 10px 12px;
+            border-radius: 50%;
+            color: rgb(255, 255, 255);
+
+        }
+
+        p {
+            color: gray;
+            text-align: center;
+            background-color: bisque;
+            /* border-radius: 50%; */
+        }
+
+        #circle2 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            color: cadetblue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>100以內的質數有：</p>
+    <div id="circle"> </div>
+    <p>3和4的公倍數有：</p>
+    <div id="circle2"></div>
+    <script>
+        var div = document.getElementById('circle')
+        let isPrime = true;
+        for (let dividend = 2; dividend <= 100; dividend++) {
+            for (let divisor = 2; divisor < dividend; divisor++) {
+                if (dividend % divisor == 0) {
+                    isPrime = false
+                }
+            }
+
+
+            if (isPrime !== true) {
+                console.log(`${dividend}不是質數!`);
+                isPrime = true;
+            } else {
+                circle.innerHTML += `<span class = blue>${dividend}</span> ,`
+                // document.write(`<div class =container><div class =circle>${dividend}</div></div> ,`)
+
+            }
+
+
+        }
+
+
+        //另一種寫法
+
+        // for (let dividend = 2; dividend <= 100; dividend++) {
+
+        //     let isPrime = true;
+        //     for (let divisor = 2; divisor < dividend; divisor++) {
+        //         if (dividend % divisor == 0) {
+        //             isPrime = false;
+        //         }
+
+        //         if (isPrime == false) {
+        //             console.log(`${dividend}不是`);
+
+        //         } else {
+        //             console.log(`${dividend}是`);
+        //         }
+        //     }
+
+        // }
+
+        var div2 = document.getElementById('circle2')
+        var arr = [];
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 4 == 0) {
+                console.log(`${i}`);
+                circle2.innerHTML += `<span class = purple>${i}</span> ,`
+                // arr[arr.length] = i;
+            }
+        }
+        console.log(arr);
+        document.write(`${arr}</br>`)
+
+
+    </script>
+</body>
+
+</html>
